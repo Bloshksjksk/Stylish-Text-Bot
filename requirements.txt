@@ -1,2 +1,5 @@
+pyrogram
 tgcrypto
-pyrogram==1.2.9
+aiofiles
+motor
+dnspython
