@@ -52,7 +52,7 @@ async def startprivate(client, message):
             )
         else:
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
-    raise StopPropagation  
+     
   
 @app.on_message(filters.command("settings"))
 async def opensettings(bot, cmd):
