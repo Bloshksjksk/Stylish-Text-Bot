@@ -60,10 +60,17 @@ async def startprivate(client, message):
             InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
             ]
             ]
-            welcomed = f
+            welcomed = f"""Hey! {m.from_user.mention},
+
+                       ** I am Stylish Font Bot ✍️**
+
+                       `I can help you to get stylish fonts. Just send me some text and see magic.`
+
+                        ** Developer by :** ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)
+              """
             await message.reply_photo(
             photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
-            caption=text,
+            caption=welcomed,
             reply_markup=InlineKeyboardMarkup(buttons))
 
     
