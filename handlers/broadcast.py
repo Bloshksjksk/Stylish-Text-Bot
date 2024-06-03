@@ -20,7 +20,7 @@ import config
 
 broadcast_ids = {}
 
-BROADCAST_AS_COPY = config.BROADCAST_AS_COPY
+BROADCAST_AS_COPY = True
 
 
 async def send_msg(user_id, message):
