@@ -52,6 +52,21 @@ async def startprivate(client, message):
             )
         else:
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
+            buttons = [ [
+            InlineKeyboardButton('👥 Group', url=f"https://t.me/trumbotchat"),
+            InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
+            ],[
+            InlineKeyboardButton('❤️Me', url=f"https://t.me/fligher"),
+            InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
+            ]
+            ]
+            welcomed = f
+            await message.reply_photo(
+            photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
+            caption=text,
+            reply_markup=InlineKeyboardMarkup(buttons))
+
+    
      
   
 @app.on_message(filters.command("settings"))
