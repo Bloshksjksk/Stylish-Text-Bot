@@ -38,8 +38,6 @@ async def start(c, m):
 
 @Client.on_message(filters.command('about'))
 async def start(c, m):
-    owner = await c.get_users(int(Config.OWNER_ID))
-    owner_username = owner.username if owner.username else 'TRUMBOTS'
 
     # start text
     text = f"""<b>♻️ ᴍʏ ɴᴀᴍᴇ : [FontStyleTB_bot] (https://t.me/saveybot_bot)
