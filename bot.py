@@ -53,7 +53,18 @@ async def startprivate(client, message):
         BOT_USERNAME = data.username
 
         # Send a welcome message to the user
-        welcome_message = f"Hey! {message.from_user.mention},\n\nI am Stylish Font Bot ✍️\n\nI can help you to get stylish fonts. Just send me some text and see magic.\n\nDeveloper by : ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)"
+        
+        current_time = datetime.datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        # Send a message to the log channel
+        if LOG_CHANNEL:
+            await client.send_message(
+                LOG_CHANNEL,
+                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} at {current_time}!!",
+            )
+        else:
+            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id} TIme : {current_time}")
+
+    welcome_message = f"Hey! {message.from_user.mention},\n\nI am Stylish Font Bot ✍️\n\nI can help you to get stylish fonts. Just send me some text and see magic.\n\nDeveloper by : ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)"
         buttons = [ [
             InlineKeyboardButton('👥 Group', url=f"https://t.me/trumbotchat"),
             InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
@@ -66,18 +77,7 @@ async def startprivate(client, message):
                 photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
                 caption=welcome_message,
                 reply_markup=InlineKeyboardMarkup(buttons)
-        )
-
-        # Send a message to the log channel
-        if LOG_CHANNEL:
-            await client.send_message(
-                LOG_CHANNEL,
-                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
-            )
-        else:
-            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
-
-    
+        )    
      
   
 @app.on_message(filters.command("settings"))
