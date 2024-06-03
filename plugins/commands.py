@@ -5,34 +5,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@Client.on_message(filters.command('start'))
-async def start(c, m):
 
-    # start text
-    text = f"""Hey! {m.from_user.mention(style='md')},
-
-** I am Stylish Font Bot ✍️**
-
-`I can help you to get stylish fonts. Just send me some text and see magic.`
-
-** Developer by :** ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)
-"""
-
-    # Buttons
-    buttons = [
-        [
-            InlineKeyboardButton('👥 Group', url=f"https://t.me/iZaute/5"),
-            InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
-            ],[
-            InlineKeyboardButton('❤️Me', url=f"https://t.me/fligher"),
-            InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
-            ]
-    ]
-    await m.reply_photo(
-        photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
-        caption=text,
-        reply_markup=InlineKeyboardMarkup(buttons)
-    )
 
 @Client.on_message(filters.command('about'))
 async def start(c, m):
@@ -54,7 +27,7 @@ async def start(c, m):
     # Buttons
     buttons = [
         [
-            InlineKeyboardButton('👥 Group', url=f"https://t.me/iZaute/5"),
+            InlineKeyboardButton('👥 Group', url=f"https://t.me/trumbotchat"),
             InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
             ],[
             InlineKeyboardButton('❤️Me', url=f"https://t.me/fligher"),
