@@ -37,22 +37,24 @@ if __name__ == "__main__" :
         plugins=plugins,
         workers=100
     )
+
 @app.on_message(filters.command("start") & filters.private)
 async def startprivate(client, message):
-    # return
+    # Get the user's chat ID
     chat_id = message.from_user.id
+
+    # Check if the user is new
     if not await db.is_user_exist(chat_id):
+        # Add the user to the database
+        await db.add_user(chat_id)
+
+        # Get the bot's username
         data = await client.get_me()
         BOT_USERNAME = data.username
-        await db.add_user(chat_id)
-        if LOG_CHANNEL:
-            await client.send_message(
-                LOG_CHANNEL,
-                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
-            )
-        else:
-            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
-            buttons = [ [
+
+        # Send a welcome message to the user
+        welcome_message = f"Hey! {message.from_user.mention},\n\nI am Stylish Font Bot ✍️\n\nI can help you to get stylish fonts. Just send me some text and see magic.\n\nDeveloper by : ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)"
+        buttons = [ [
             InlineKeyboardButton('👥 Group', url=f"https://t.me/trumbotchat"),
             InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
             ],[
@@ -60,18 +62,20 @@ async def startprivate(client, message):
             InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
             ]
             ]
-            welcomed = f"""Hey! {m.from_user.mention},
+        await message.reply_photo(
+                photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
+                caption=welcome_message,
+                reply_markup=InlineKeyboardMarkup(buttons)
+        )
 
-                       ** I am Stylish Font Bot ✍️**
-
-                       `I can help you to get stylish fonts. Just send me some text and see magic.`
-
-                        ** Developer by :** ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)
-              """
-            await message.reply_photo(
-            photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
-            caption=welcomed,
-            reply_markup=InlineKeyboardMarkup(buttons))
+        # Send a message to the log channel
+        if LOG_CHANNEL:
+            await client.send_message(
+                LOG_CHANNEL,
+                f"#NEWUSER: \n\nNew User [{message.from_user.first_name}](tg://user?id={message.from_user.id}) started @{BOT_USERNAME} !!",
+            )
+        else:
+            logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id}")
 
     
      
