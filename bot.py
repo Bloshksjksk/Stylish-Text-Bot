@@ -65,7 +65,7 @@ async def startprivate(client, message):
             logging.info(f"#NewUser :- Name : {message.from_user.first_name} ID : {message.from_user.id} TIme : {current_time}")
 
     welcome_message = f"Hey! {message.from_user.mention},\n\nI am Stylish Font Bot ✍️\n\nI can help you to get stylish fonts. Just send me some text and see magic.\n\nDeveloper by : ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)"
-        buttons = [ [
+    buttons = [ [
             InlineKeyboardButton('👥 Group', url=f"https://t.me/trumbotchat"),
             InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
             ],[
@@ -73,7 +73,7 @@ async def startprivate(client, message):
             InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
             ]
             ]
-        await message.reply_photo(
+    await message.reply_photo(
                 photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
                 caption=welcome_message,
                 reply_markup=InlineKeyboardMarkup(buttons)
