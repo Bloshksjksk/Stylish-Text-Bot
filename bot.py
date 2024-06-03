@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 import os
 
 from config import Config
-from pyrogram import Client,filters
+from pyrogram import Client,filters,StopPropagation
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 
