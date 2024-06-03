@@ -8,7 +8,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @Client.on_message(filters.command('start'))
 async def start(c, m):
     owner = await c.get_users(int(Config.OWNER_ID))
-    owner_username = owner.username if owner.username else 'zautebot'
+    owner_username = owner.username if owner.username else 'TRUMBOTS'
 
     # start text
     text = f"""Hey! {m.from_user.mention(style='md')},
@@ -17,26 +17,60 @@ async def start(c, m):
 
 `I can help you to get stylish fonts. Just send me some text and see magic.`
 
-** Developer by :** ❤️ ▷ [@ZauteKm](https://t.me/ZauteKm/346)
+** Developer by :** ❤️ ▷ [TRUMBOTS](https://t.me/movie_time_botonly)
 """
 
     # Buttons
     buttons = [
         [
             InlineKeyboardButton('👥 Group', url=f"https://t.me/iZaute/5"),
-            InlineKeyboardButton('Channel 📢', url=f"https://t.me/iZaute/6")
+            InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
             ],[
-            InlineKeyboardButton('❤️ Credit', url=f"https://t.me/{owner_username}"),
-            InlineKeyboardButton('Bot Lists 🤖', url=f"https://t.me/iZaute/8"),
-            InlineKeyboardButton('GitHup 🤣', url=f"https://github.com/ZauteKm")
-            ],[
-            InlineKeyboardButton('⚜️ Subscribe Now YouTube ⚜️', url=f"https://youtube.com/c/ZauteKm")
-        ]
+            InlineKeyboardButton('❤️Me', url=f"https://t.me/{owner_username}"),
+            InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
+            ]
     ]
-    await m.reply_text(
-        text=text,
+    await m.reply_photo(
+        photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
+        caption=text,
         reply_markup=InlineKeyboardMarkup(buttons)
     )
+
+@Client.on_message(filters.command('about'))
+async def start(c, m):
+    owner = await c.get_users(int(Config.OWNER_ID))
+    owner_username = owner.username if owner.username else 'TRUMBOTS'
+
+    # start text
+    text = f"""<b>♻️ ᴍʏ ɴᴀᴍᴇ : [FontStyleTB_bot] (https://t.me/saveybot_bot)
+
+🌀 ᴄʜᴀɴɴᴇʟ : <a href="https://t.me/MOVIE_Time_BotOnly">​🇹​​🇷​​🇺​​🇲​​🇧​​🇴​​🇹​​🇸</a>
+
+🌺 ʜᴇʀᴏᴋᴜ : <a href="https://heroku.com/">ʜᴇʀᴏᴋᴜ</a>
+
+📑 ʟᴀɴɢᴜᴀɢᴇ : <a href="https://www.python.org/">ᴘʏᴛʜᴏɴ 3.10.5</a>
+
+🇵🇲 ғʀᴀᴍᴇᴡᴏʀᴋ : <a href="https://docs.pyrogram.org/">ᴘʏʀᴏɢʀᴀᴍ 2.0.30</a>
+
+👲 ᴅᴇᴠᴇʟᴏᴘᴇʀ : <a href="https://t.me/fligher">​🇲​​🇾​​🇸​​🇹​​🇪​​🇷​​🇮​​🇴​</a></b>
+"""
+
+    # Buttons
+    buttons = [
+        [
+            InlineKeyboardButton('👥 Group', url=f"https://t.me/iZaute/5"),
+            InlineKeyboardButton('TRUMBOTS', url=f"https://t.me/movie_time_botonly")
+            ],[
+            InlineKeyboardButton('❤️Me', url=f"https://t.me/{owner_username}"),
+            InlineKeyboardButton('Bot Lists 🤖', url=f"https://te.legra.ph/TRUMBOTS-BOTS-LIST-06-01"),
+            ]
+    ]
+    await m.reply_photo(
+        photo="https://th.bing.com/th/id/OIG4.kIKwAP6q4rN21rOhb71Z?pid=ImgGn",
+        caption=text,
+        reply_markup=InlineKeyboardMarkup(buttons)
+    )
+
 
 
 
